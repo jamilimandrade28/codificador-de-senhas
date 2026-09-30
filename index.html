@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codificador de Senhas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>🔐 Codificador de Senhas</h1>
+      <p>Transforme uma senha de 6 caracteres em formas geométricas.</p>
+    </header>
+
+    <section class="card">
+      <div class="tabs">
+        <button class="tab active" data-tab="encode">Codificar</button>
+        <button class="tab" data-tab="decode">Decodificar</button>
+      </div>
+
+      <div id="encode" class="panel active">
+        <label for="password">Senha de 6 caracteres</label>
+        <input id="password" maxlength="6" placeholder="Ex.: abc123" autocomplete="off">
+        <small id="counter">0/6</small>
+        <button id="encodeBtn" class="primary">Codificar senha</button>
+        <div id="encodeResult" class="result hidden">
+          <strong>Código:</strong>
+          <output id="codeOutput" class="code"></output>
+          <strong>Chave de decodificação:</strong>
+          <textarea id="keyOutput" readonly></textarea>
+          <button class="copy" data-copy="codeOutput">Copiar código</button>
+          <button class="copy" data-copy="keyOutput">Copiar chave</button>
+        </div>
+      </div>
+
+      <div id="decode" class="panel">
+        <label for="codeInput">Código com formas</label>
+        <input id="codeInput" placeholder="Ex.: ●■▲◆⬡★" autocomplete="off">
+        <label for="keyInput">Chave de decodificação</label>
+        <textarea id="keyInput" placeholder="Ex.: ●:a;■:b;▲:c;◆:1;⬡:2;★:3"></textarea>
+        <button id="decodeBtn" class="primary">Decodificar</button>
+        <div id="decodeResult" class="result hidden">
+          <strong>Senha recuperada:</strong>
+          <output id="passwordOutput" class="password"></output>
+          <button class="copy" data-copy="passwordOutput">Copiar senha</button>
+        </div>
+      </div>
+      <p id="message" class="message" role="alert"></p>
+    </section>
+
+    <footer>Formas disponíveis: ● ■ ▲ ◆ ⬡ ★</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
